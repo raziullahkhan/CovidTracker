@@ -1,6 +1,11 @@
 package com.example.android.covidcase;
 
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.net.UrlQuerySanitizer;
+import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -249,6 +254,8 @@ public final class Utils {
 
     }
     public static ArrayList<CoronaState> fetchStateCorona(String requestUrl) {
+        String host= BuildConfig.HOST;
+        String key= BuildConfig.KEY;
         Response response=null;
         String jsonResponse=null;
         OkHttpClient client = new OkHttpClient();
@@ -256,8 +263,8 @@ public final class Utils {
         Request request = new Request.Builder()
                 .url(requestUrl)
                 .get()
-                .addHeader("x-rapidapi-key", "5f8b2eee7emsh4441a6c4b158c23p1f3423jsn5417693e336d")
-                .addHeader("x-rapidapi-host", "corona-virus-world-and-india-data.p.rapidapi.com")
+                .addHeader("x-rapidapi-key", key)
+                .addHeader("x-rapidapi-host",host )
                 .build();
 
         try {
