@@ -101,7 +101,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="5dp"
-                            android:text="Corona virus World and India data API"
+                            android:text="Akashraj Corona API India"
                             android:textColor="?attr/colorPrimaryVariant"
                             android:textSize="16sp"
                             android:textStyle="bold" />

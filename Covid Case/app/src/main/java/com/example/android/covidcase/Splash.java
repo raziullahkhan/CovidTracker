@@ -31,8 +31,7 @@ public class Splash extends Activity{
     private final int SPLASH_DISPLAY_LENGTH = 500;
     private static  final String COVID="https://corona.lmao.ninja/v2/all?yesterday=true";
     private static final String COUNTRYURL="https://corona.lmao.ninja/v2/countries?yesterday=true&sort=cases";
-    private static final String COVIDSTATE="https://corona-virus-world-and-india-data.p.rapidapi.com/api_india";
-    /** Called when the activity is first created. */
+    private static final String COVIDSTATE="https://akashraj.tech/corona/api_india";
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);

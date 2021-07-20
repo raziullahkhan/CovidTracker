@@ -51,7 +51,7 @@ public class AboutFragment extends Fragment {
         tvAkash.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri coronaUri=Uri.parse("https://rapidapi.com/spamakashrajtech/api/corona-virus-world-and-india-data/");
+                Uri coronaUri=Uri.parse("https://akashraj.tech/corona");
                 Intent websiteIntent=new Intent(Intent.ACTION_VIEW,coronaUri);
                 startActivity(websiteIntent);
             }
