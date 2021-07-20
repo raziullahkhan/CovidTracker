@@ -231,50 +231,25 @@ public final class Utils {
         return corona;
     }
     public static ArrayList<CoronaDistrict> fetchDistrictCorona(String requestUrl){
-        Response response=null;
+        URL url=createUrl(requestUrl);
         String jsonResponse=null;
-        OkHttpClient client = new OkHttpClient();
-
-        Request request = new Request.Builder()
-                .url(requestUrl)
-                .get()
-                .addHeader("x-rapidapi-key", "5f8b2eee7emsh4441a6c4b158c23p1f3423jsn5417693e336d")
-                .addHeader("x-rapidapi-host", "corona-virus-world-and-india-data.p.rapidapi.com")
-                .build();
-
-        try {
-            response = client.newCall(request).execute();
-            jsonResponse = response.body().string();
-            response.body().close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        try{
+            jsonResponse=makeHttpRequest(url);
+        }catch (IOException e){
+            Log.e("Utils","Problem making HTTP request",e);
         }
-        ArrayList<CoronaDistrict> coronaDistrict = extractDistrictJson(jsonResponse);
-        return coronaDistrict;
-
+        ArrayList<CoronaDistrict> coronaDistricts=extractDistrictJson(jsonResponse);
+        return  coronaDistricts;
     }
     public static ArrayList<CoronaState> fetchStateCorona(String requestUrl) {
-        String host= BuildConfig.HOST;
-        String key= BuildConfig.KEY;
-        Response response=null;
+        URL url=createUrl(requestUrl);
         String jsonResponse=null;
-        OkHttpClient client = new OkHttpClient();
-
-        Request request = new Request.Builder()
-                .url(requestUrl)
-                .get()
-                .addHeader("x-rapidapi-key", key)
-                .addHeader("x-rapidapi-host",host )
-                .build();
-
-        try {
-            response = client.newCall(request).execute();
-            jsonResponse = response.body().string();
-            response.body().close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        try{
+            jsonResponse=makeHttpRequest(url);
+        }catch (IOException e){
+            Log.e("Utils","Problem making HTTP request",e);
         }
-        ArrayList<CoronaState> coronaState = extractStateJson(jsonResponse);
-        return coronaState;
+        ArrayList<CoronaState> coronaStates=extractStateJson(jsonResponse);
+        return  coronaStates;
     }
 }
